@@ -60,4 +60,18 @@ mod test {
             "Hello there."
         );
     }
+    #[test]
+    fn test_encrypt3() {
+        // note that spaces are still matched with a value in the key
+        // the expected value is not expecting this
+        assert_eq!(
+            encrypt("tokyotower.", "key", ALPHA_LOWER),
+            "dsiisryacb."
+        );
+        assert_eq!(
+            decrypt("dsiisryacb.", "key", ALPHA_LOWER),
+            "tokyotower."
+        );
+        
+    }
 }
